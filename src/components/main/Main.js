@@ -8,20 +8,22 @@ import "./main.modules.css";
 
 function Main(props) {
   let [coins, setCoins] = useState([]);
+  let [coinsResult, setCoinsResult] = useState([0, 15]);
+  let [nowPage, setNowPage] = useState(1);
 
   useEffect(() => {
     props.setLoadingModal(true);
     axios
       .get("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
       .then((result) => {
-        setCoins(result.data.slice(0, 15));
+        setCoins(result.data.slice(coinsResult[0], coinsResult[1]));
         props.setLoadingModal(false);
       })
       .catch(() => {
         alert("데이터를 못불러옴 !");
         props.setLoadingModal(false);
       });
-  }, []);
+  }, [coinsResult]);
 
   return (
     <div className="main-container">
@@ -61,11 +63,30 @@ function Main(props) {
           </tbody>
         </table>
         <div className="button-list">
-          <button>
-            <FaChevronLeft />
-          </button>
-          <span>1</span>
-          <button>
+          {nowPage === 1 ? null : (
+            <button
+              onClick={() => {
+                let newCoinsResult = coinsResult.map(
+                  (coinsResult) => coinsResult - 15
+                );
+                setCoinsResult(newCoinsResult);
+                setNowPage(nowPage - 1);
+              }}
+            >
+              <FaChevronLeft />
+            </button>
+          )}
+
+          <span>{nowPage}</span>
+          <button
+            onClick={() => {
+              let newCoinsResult = coinsResult.map(
+                (coinsResult) => coinsResult + 15
+              );
+              setCoinsResult(newCoinsResult);
+              setNowPage(nowPage + 1);
+            }}
+          >
             <FaChevronRight />
           </button>
         </div>
