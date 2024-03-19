@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 14%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+h1 {
+  color: #11ddaa;
+  margin: 0;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  gap: 22px;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  position: relative;
+}
+
+a:hover {
+  color: #11ddaa;
+}
+
+a {
+  color: #e4e4e4;
+  padding: 4px;
+}
+
+.header-icon {
+  font-size: 28px;
+}
+
+.api-icon{
+  position: absolute;
+  font-size: 18px;
+  left: -12px;
+}

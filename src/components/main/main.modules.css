@@ -1,0 +1,61 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.main-container > div {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  width: 70%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  color: #e4e4e4;
+  text-align: center;
+  padding: 8px 0;
+}
+
+thead > tr {
+  border-bottom: 2px solid #11ddaa;
+}
+
+tbody > tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+tbody > tr:last-child {
+  border-bottom: 0;
+}
+
+.button-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-list > button {
+  border: none;
+  background: none;
+  padding: 4px;
+  font-size: 16px;
+  color: #e4e4e4;
+}
+
+.button-list > button:hover {
+  color: #11ddaa;
+  cursor: pointer;
+}
+
+span {
+  color: #e4e4e4;
+  position: relative;
+  top: -2.3px;
+}
